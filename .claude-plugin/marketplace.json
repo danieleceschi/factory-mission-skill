@@ -1,0 +1,20 @@
+{
+  "name": "factory-mission-skill",
+  "description": "Portable skills for planning and operating Factory Missions.",
+  "owner": {
+    "name": "Daniele Ceschi"
+  },
+  "plugins": [
+    {
+      "name": "factory-mission",
+      "description": "Plan, audit, launch, monitor, resume, and steer Factory Missions.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Daniele Ceschi"
+      },
+      "source": "./plugins/factory-mission",
+      "category": "Developer Tools",
+      "homepage": "https://github.com/danieleceschi/factory-mission-skill"
+    }
+  ]
+}

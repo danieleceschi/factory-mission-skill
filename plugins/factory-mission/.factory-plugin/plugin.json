@@ -1,0 +1,12 @@
+{
+  "name": "factory-mission",
+  "description": "Plan, audit, launch, monitor, resume, and steer Factory Missions.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Daniele Ceschi"
+  },
+  "homepage": "https://github.com/danieleceschi/factory-mission-skill",
+  "repository": "https://github.com/danieleceschi/factory-mission-skill",
+  "license": "MIT",
+  "keywords": ["factory", "missions", "droid", "agent-orchestration"]
+}

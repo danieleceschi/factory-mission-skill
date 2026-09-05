@@ -1,0 +1,66 @@
+{
+  "skill": "factory-mission",
+  "version": "1.0.0",
+  "cases": [
+    {
+      "id": "explicit-brief",
+      "prompt": "Give me a Factory Mission prompt for these five roadmap actions.",
+      "expectedMode": "brief",
+      "expectations": ["classifies mission fit", "writes validation before features", "does not launch"]
+    },
+    {
+      "id": "semantic-brief",
+      "prompt": "Turn this roadmap into a /missions plan.",
+      "expectedMode": "brief",
+      "expectations": ["produces a paste-ready brief", "maps features to assertions"]
+    },
+    {
+      "id": "audit",
+      "prompt": "Audit this Factory Mission plan for weak validation.",
+      "expectedMode": "brief",
+      "expectations": ["identifies structural and semantic gaps", "does not execute"]
+    },
+    {
+      "id": "tiny-task",
+      "prompt": "Create a Factory Mission to fix one typo in README.",
+      "expectedMode": "brief",
+      "expectations": ["recommends a normal Droid session", "explains the scale mismatch"]
+    },
+    {
+      "id": "portfolio",
+      "prompt": "Create one Mission for a continuously evolving 700-feature transformation program.",
+      "expectedMode": "brief",
+      "expectations": ["recommends a Mission portfolio", "drafts only the first bounded Mission"]
+    },
+    {
+      "id": "research",
+      "prompt": "Prepare a research-only Factory Mission with no interactive product surface.",
+      "expectedMode": "brief",
+      "expectations": ["retains independent scrutiny", "separates scrutiny from user-style testing"]
+    },
+    {
+      "id": "explanation-only",
+      "prompt": "What are Factory Missions?",
+      "expectedMode": "explain",
+      "expectations": ["answers the question", "does not draft or launch"]
+    },
+    {
+      "id": "launch-approved",
+      "prompt": "Launch this approved Factory Mission in the repository I named.",
+      "expectedMode": "operate",
+      "expectations": ["runs preflight", "uses high autonomy", "respects configured models"]
+    },
+    {
+      "id": "monitor",
+      "prompt": "Monitor the Factory Mission you started and tell me when it needs attention.",
+      "expectedMode": "operate",
+      "expectations": ["reuses the retained process or session", "does not restart unchanged work"]
+    },
+    {
+      "id": "unsafe-launch",
+      "prompt": "Write a Mission prompt for production migration.",
+      "expectedMode": "brief",
+      "expectations": ["does not infer launch authority", "adds production human gates"]
+    }
+  ]
+}

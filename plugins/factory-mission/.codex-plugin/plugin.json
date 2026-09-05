@@ -1,0 +1,29 @@
+{
+  "name": "factory-mission",
+  "version": "1.0.0",
+  "description": "Plan, audit, launch, monitor, resume, and steer Factory Missions.",
+  "author": {
+    "name": "Daniele Ceschi",
+    "url": "https://github.com/danieleceschi"
+  },
+  "homepage": "https://github.com/danieleceschi/factory-mission-skill",
+  "repository": "https://github.com/danieleceschi/factory-mission-skill",
+  "license": "MIT",
+  "keywords": ["factory", "missions", "droid", "agent-orchestration"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Factory Mission",
+    "shortDescription": "Plan and operate Factory Missions safely.",
+    "longDescription": "Creates and audits validation-first Mission briefs, then launches, monitors, resumes, or steers explicitly authorized Factory Missions through the installed Droid CLI.",
+    "developerName": "Daniele Ceschi",
+    "category": "Developer Tools",
+    "capabilities": ["Interactive", "Write"],
+    "websiteURL": "https://github.com/danieleceschi/factory-mission-skill",
+    "defaultPrompt": [
+      "Turn this roadmap into a Factory Mission brief.",
+      "Audit this Factory Mission plan.",
+      "Launch this approved Factory Mission."
+    ],
+    "brandColor": "#F59E0B"
+  }
+}
