@@ -16,7 +16,7 @@ Codex, or Claude Code. It helps you decide whether a Mission is appropriate,
 turn a goal into a validation-first brief, audit the plan, and—only when you
 explicitly ask—launch and steer the work through the Droid CLI.
 
-> Community-maintained and not an official Factory package.
+> This is an unofficial open-source project, not an official Factory package.
 
 ## New to Factory?
 
@@ -66,8 +66,9 @@ plan. This skill addresses those problems before execution begins.
   CLI—but only after an explicit operational request.
 - Includes a standard-library structural linter and behavioral eval fixtures.
 
-The skill never treats a request for a prompt as permission to start work. It
-does not add an MCP server, embed credentials, or hardcode a maintainer's model.
+Planning and auditing are non-operational: asking for a brief or review never
+launches a Mission. Operational actions use the installed Droid CLI and require
+an explicit request.
 
 ## Example
 
@@ -90,6 +91,9 @@ Mission” authorizes the operational workflow.
   authenticated, and available on your `PATH`.
 - Python is optional and is used only for the included deterministic brief
   linter and test suite.
+
+When operating a Mission, the skill uses your installed Droid CLI and follows
+your existing Factory authentication and model configuration.
 
 ## Install
 
@@ -128,32 +132,6 @@ skill invocation:
 - “Launch this approved Factory Mission in `C:\path\to\repo`.”
 - “Monitor the Factory Mission you started and intervene if it blocks.”
 
-## Personal model policy
-
-Keep machine-specific model preferences in Factory's user-local settings, not
-in this public package. For example, `%USERPROFILE%\.factory\settings.local.json`
-on Windows or `~/.factory/settings.local.json` elsewhere can contain:
-
-```json
-{
-  "sessionDefaultSettings": {
-    "model": "auto"
-  },
-  "missionOrchestratorModel": "auto",
-  "missionModelSettings": {
-    "workerModel": "auto",
-    "validationWorkerModel": "auto"
-  },
-  "modelFallbacks": {
-    "auto": "<your-fallback-model-id>"
-  }
-}
-```
-
-The operator omits model flags by default so Factory resolves these settings.
-This also supports Droid versions that accept Auto in settings but reject
-`--model auto` on the command line.
-
 ## Validate a brief
 
 Python is optional for skill use and required only for deterministic linting:
@@ -178,6 +156,13 @@ Mission operations require an explicit action request and normally use
 delete data, purchase services, contact people, or touch production unless the
 user separately requests those actions. The skill never uses
 `--skip-permissions-unsafe` as a convenience.
+
+## Contributing
+
+This project is currently maintainer-led and open to contributors. Bug reports,
+compatibility findings, documentation improvements, and tested workflow changes
+are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for the development and
+review process.
 
 ## License
 

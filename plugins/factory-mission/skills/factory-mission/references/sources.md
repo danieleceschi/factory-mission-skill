@@ -25,7 +25,7 @@ Do not fetch every source during ordinary skill use.
   [plugins](https://docs.factory.ai/harness/plugins) — discovery, packaging,
   precedence, and distribution.
 
-## Portable Agent Skills
+## Agent Skill compatibility
 
 - [Agent Skills specification](https://agentskills.io/specification)
 - [Claude Code skills](https://code.claude.com/docs/en/skills)

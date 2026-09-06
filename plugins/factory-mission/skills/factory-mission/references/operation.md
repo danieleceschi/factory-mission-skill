@@ -43,7 +43,7 @@ and validator model settings, so verify all three inherit or match the intended
 policy.
 
 When Auto Model is configured, prefer omitting model flags and let Factory
-resolve the settings and `modelFallbacks`. This is more portable than passing
+resolve the settings and `modelFallbacks`. This is more reliable than passing
 `--model auto`, which some Droid CLI versions reject even when the Auto setting
 is valid. If preflight reports an unavailable model:
 

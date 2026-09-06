@@ -1,6 +1,6 @@
 {
   "name": "factory-mission-skill",
-  "description": "Portable skills for planning and operating Factory Missions.",
+  "description": "Plan, validate, and operate Factory Missions from Droid, Codex, or Claude Code.",
   "owner": {
     "name": "Daniele Ceschi"
   },
