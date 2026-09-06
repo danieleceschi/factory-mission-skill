@@ -159,10 +159,9 @@ user separately requests those actions. The skill never uses
 
 ## Contributing
 
-This project is currently maintainer-led and open to contributors. Bug reports,
-compatibility findings, documentation improvements, and tested workflow changes
-are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for the development and
-review process.
+Contributions are welcome, including bug reports, compatibility findings,
+documentation improvements, and tested workflow changes. See
+[CONTRIBUTING.md](CONTRIBUTING.md) for the development and review process.
 
 ## License
 

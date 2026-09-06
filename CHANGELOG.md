@@ -2,10 +2,9 @@
 
 ## Unreleased
 
-- Clarify the public positioning for newcomers and remove maintainer-specific
-  model configuration from the README.
-- Describe the project accurately as maintainer-led and add contribution and
-  governance guidance.
+- Clarify the public positioning for newcomers and remove private,
+  machine-specific model configuration from the README.
+- Add contribution guidance and explain how changes are reviewed.
 - Replace “portable” positioning with explicit support for Droid, Codex, and
   Claude Code.
 

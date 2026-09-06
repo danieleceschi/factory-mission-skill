@@ -1,8 +1,7 @@
 # Contributing
 
-Thanks for helping improve Factory Mission Skill. The project is currently
-maintainer-led, and contributions are welcome through GitHub issues and pull
-requests.
+Thanks for helping improve Factory Mission Skill. Contributions are welcome
+through GitHub issues and pull requests.
 
 ## Good contribution areas
 
@@ -49,8 +48,9 @@ Explain the problem, the chosen solution, and how you verified it. Keep pull
 requests focused enough to review independently. Screenshots or command output
 are useful when they demonstrate installation or host compatibility.
 
-## Governance
+## How changes are handled
 
-The project is currently maintained by its repository owner, who reviews
-changes and publishes releases. If recurring contributors emerge, the project
-can add documented co-maintainer criteria and shared release responsibilities.
+Changes are proposed and reviewed through issues and pull requests. Releases
+are published after the relevant tests and package validators pass. Shared
+review or release responsibilities can be documented if and when the project
+needs them.

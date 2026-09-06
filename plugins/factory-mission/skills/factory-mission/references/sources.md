@@ -1,4 +1,4 @@
-# Maintainer sources
+# Source references
 
 Last reviewed: 2026-09-05.
 
