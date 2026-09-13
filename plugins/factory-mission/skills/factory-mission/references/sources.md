@@ -1,6 +1,7 @@
 # Source references
 
-Last reviewed: 2026-09-05.
+Last reviewed: 2026-09-13. CLI flags also checked against Droid 0.198.0
+(`droid --version`, `droid exec --help`); no live Mission launched for this review.
 
 Read this file when product behavior, packaging, or authoring rules need review.
 Do not fetch every source during ordinary skill use.
@@ -17,6 +18,10 @@ Do not fetch every source during ordinary skill use.
   — Mission mode and autonomy separation.
 - [Droid CLI reference](https://docs.factory.ai/droid-cli/cli-reference) —
   `droid exec --mission`, continuation, and model flags.
+- [Droid Exec](https://docs.factory.ai/droid-exec/overview) — one-shot results,
+  session continuation, streaming output, and bidirectional JSON-RPC requests.
+- [Missions reference](https://docs.factory.ai/missions/reference) — inherited
+  configuration, headless execution, and validation settings.
 - [Droid settings](https://docs.factory.ai/droid-cli/settings) — orchestrator,
   worker, validator, and `modelFallbacks` settings.
 - [Factory Router](https://docs.factory.ai/model-independence/factory-router) —

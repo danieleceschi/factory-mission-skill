@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 import unittest
 from pathlib import Path
 
@@ -21,9 +22,16 @@ class MetadataTests(unittest.TestCase):
             load_json(PLUGIN / ".claude-plugin" / "plugin.json"),
         ]
         self.assertEqual({item["name"] for item in manifests}, {"factory-mission"})
-        self.assertEqual({item["version"] for item in manifests}, {"1.0.0"})
+        versions = {item["version"] for item in manifests}
+        self.assertEqual(versions, {"1.1.0"})
+        skill = PLUGIN / "skills" / "factory-mission"
+        metadata = (skill / "SKILL.md").read_text(encoding="utf-8").split("---", 2)[1]
+        skill_version = re.search(r"^  version: (.+)$", metadata, re.MULTILINE)
+        self.assertIsNotNone(skill_version)
+        self.assertEqual(versions, {skill_version.group(1)})
+        self.assertEqual(versions, {load_json(skill / "evals" / "evals.json")["version"]})
         self.assertEqual({item["description"] for item in manifests}, {
-            "Plan, audit, launch, monitor, resume, and steer Factory Missions."
+            "Plan Factory Missions and supervise authorized runs through verified completion."
         })
 
     def test_marketplaces_reference_the_plugin(self) -> None:
@@ -37,6 +45,9 @@ class MetadataTests(unittest.TestCase):
             self.assertEqual(data["name"], "factory-mission-skill")
             self.assertEqual(len(data["plugins"]), 1)
             self.assertEqual(data["plugins"][0]["name"], "factory-mission")
+            if "version" in data["plugins"][0]:
+                manifest = load_json(PLUGIN / ".codex-plugin" / "plugin.json")
+                self.assertEqual(data["plugins"][0]["version"], manifest["version"])
 
     def test_public_package_has_no_personal_machine_values(self) -> None:
         forbidden = (

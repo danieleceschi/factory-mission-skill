@@ -42,6 +42,19 @@ Before submitting a change:
 4. Preserve the explicit authorization boundary for operational actions.
 5. Update the README or changelog when users need to know about the change.
 
+## Behavioral evaluation
+
+The package tests validate metadata and brief structure. They do not execute
+Mission supervision. Scenarios in
+`plugins/factory-mission/skills/factory-mission/evals/evals.json` separately
+exercise routing, question handling, recovery, and completion decisions.
+
+For workflow changes, give a fresh evaluator the skill plus each selected
+scenario's `prompt` and `context` before showing its `expectations`. Simulate
+session output offline unless a live run is explicitly authorized. Check the
+actual decisions and report which cases ran; do not call all fixtures passed
+merely because the JSON parsed or unit tests passed.
+
 ## Pull requests
 
 Explain the problem, the chosen solution, and how you verified it. Keep pull

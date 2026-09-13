@@ -1,7 +1,7 @@
 {
   "name": "factory-mission",
-  "version": "1.0.0",
-  "description": "Plan, audit, launch, monitor, resume, and steer Factory Missions.",
+  "version": "1.1.0",
+  "description": "Plan Factory Missions and supervise authorized runs through verified completion.",
   "author": {
     "name": "Daniele Ceschi",
     "url": "https://github.com/danieleceschi"
@@ -9,20 +9,28 @@
   "homepage": "https://github.com/danieleceschi/factory-mission-skill",
   "repository": "https://github.com/danieleceschi/factory-mission-skill",
   "license": "MIT",
-  "keywords": ["factory", "missions", "droid", "agent-orchestration"],
+  "keywords": [
+    "factory",
+    "missions",
+    "droid",
+    "agent-orchestration"
+  ],
   "skills": "./skills/",
   "interface": {
     "displayName": "Factory Mission",
-    "shortDescription": "Plan and operate Factory Missions safely.",
-    "longDescription": "Creates and audits validation-first Mission briefs, then launches, monitors, resumes, or steers explicitly authorized Factory Missions through the installed Droid CLI.",
+    "shortDescription": "Plan Missions and carry them through completion.",
+    "longDescription": "Creates and audits validation-first Mission briefs, then supervises authorized runs: answers Factory questions, unblocks workers, resumes work, and verifies outcomes through the installed Droid CLI.",
     "developerName": "Daniele Ceschi",
     "category": "Developer Tools",
-    "capabilities": ["Interactive", "Write"],
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
     "websiteURL": "https://github.com/danieleceschi/factory-mission-skill",
     "defaultPrompt": [
       "Turn this roadmap into a Factory Mission brief.",
       "Audit this Factory Mission plan.",
-      "Launch this approved Factory Mission."
+      "Run this Factory Mission to completion and resolve Factory questions."
     ],
     "brandColor": "#F59E0B"
   }

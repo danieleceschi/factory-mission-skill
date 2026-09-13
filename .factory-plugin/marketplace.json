@@ -1,17 +1,21 @@
 {
   "name": "factory-mission-skill",
-  "description": "Plan, validate, and operate Factory Missions from Droid, Codex, or Claude Code.",
+  "description": "Plan Factory Missions and carry authorized runs through completion from Droid, Codex, or Claude Code.",
   "owner": {
     "name": "Daniele Ceschi"
   },
   "plugins": [
     {
       "name": "factory-mission",
-      "description": "Plan, audit, launch, monitor, resume, and steer Factory Missions.",
+      "description": "Plan Factory Missions and supervise authorized runs through verified completion.",
       "source": "./plugins/factory-mission",
       "category": "Developer Tools",
       "homepage": "https://github.com/danieleceschi/factory-mission-skill",
-      "tags": ["missions", "droid", "orchestration"]
+      "tags": [
+        "missions",
+        "droid",
+        "orchestration"
+      ]
     }
   ]
 }
