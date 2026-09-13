@@ -51,7 +51,13 @@ exist.}
 ## Capabilities and execution
 
 {Repository instructions, verified skills/tools, branch policy, validation
-sequence, human gates, and external-action boundaries.}
+sequence, budgets, human gates, and external-action boundaries.}
+
+After authorized launch, resolve routine questions from this brief and repository
+evidence, choose reversible options within scope, and continue through worker
+handoffs, validation, and repairs. Ask only for material missing decisions or
+additional authority. Report completion with evidence for every required
+assertion; if blocked, retain the failed evidence and identify the needed action.
 
 ## Stop conditions
 

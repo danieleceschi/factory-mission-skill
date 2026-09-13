@@ -1,35 +1,39 @@
 ---
 name: factory-mission
 description: >-
-  Create, audit, launch, monitor, resume, or steer Factory Missions. Use when
-  the user asks for a Factory Mission brief or /missions plan, wants an
-  existing Mission checked, or explicitly asks to operate a Mission through
-  the installed Droid CLI. Creating or auditing a brief never authorizes
-  launching it.
+  Create or audit Factory Mission briefs, and run authorized Missions through
+  verified completion: answer Factory questions, unblock workers, resume work,
+  and validate outcomes. Use for Factory Mission prompts, /missions plans,
+  execution, takeover, or monitoring. A brief-only request never launches work;
+  monitoring alone is read-only.
 license: MIT
 metadata:
   author: danieleceschi
-  version: 1.0.0
-  source-reviewed: 2026-09-05
+  version: 1.1.0
+  source-reviewed: 2026-09-13
 ---
 
 # Factory Mission
 
-Handle a Factory Mission as a lifecycle with two boundaries: planning produces
-a reviewable brief, while operation requires an explicit user request to act.
+Own the requested Mission lifecycle. A planning request ends with a usable
+brief. A request to run a Mission ends with verified completion or a concrete
+blocker that cannot be resolved within the user's authority and constraints.
 
 ## Route the request
 
 - For a brief, prompt, plan, audit, or rewrite, use **Brief mode** and read
   [references/brief-authoring.md](references/brief-authoring.md).
-- For an explicit request to launch, run, monitor, wait for, resume, pause, or
-  steer a Mission, use **Operation mode** and read
+- For a request to launch, run, finish, take over, resume, or bring a Mission to
+  completion, use **Completion mode** and read
   [references/operation.md](references/operation.md).
+- For status, monitoring, a pause, or one specific intervention, use **Scoped
+  operation mode** in the same reference. Respect the narrower request.
 - If the user asks only how Missions work, answer without creating or running
   one.
-- If the request mixes planning and launch, finish and show the brief first.
-  Launch only when the same request clearly authorizes execution or after the
-  user approves the resulting brief.
+- If the request includes planning and execution, prepare and summarize the
+  brief, then proceed under that existing authority. Do not insert another
+  approval round for ordinary planning choices. Brief-only wording such as
+  "write a prompt that runs to completion" still selects Brief mode.
 
 ## Shared workflow
 
@@ -44,6 +48,13 @@ a reviewable brief, while operation requires an explicit user request to act.
 4. Make validation observable and falsifiable before decomposing work.
 5. Validate the produced brief or the operation's preconditions in proportion
    to risk, then report the result and remaining decisions plainly.
+
+In Completion mode, keep observing, deciding, responding, and verifying after
+launch. Resolve routine Factory questions from the user's instructions, the
+approved brief, repository evidence, and reasonable reversible choices. Ask
+the user only for a material decision or permission that cannot be inferred.
+A launched process, an answered question, a completed agent turn, or Factory's
+success message alone is not Mission completion.
 
 ## Non-negotiable boundaries
 
@@ -65,10 +76,15 @@ a reviewable brief, while operation requires an explicit user request to act.
 ## Completion
 
 For Brief mode, return the recommended execution shape, the paste-ready brief,
-assumptions or blocking questions, and the worker-run floor estimate. For
-Operation mode, return a concise receipt containing the target repository,
-Factory session or process identifier when available, effective model policy,
-current state, evidence collected, and the next intervention point.
+assumptions or blocking questions, and the worker-run floor estimate.
+
+For Completion mode, stay engaged until the accepted outcome is verified, the
+user stops the work, or a genuine blocker needs user input or an external
+change. Return the outcome, validation evidence, repository/worktree and
+session identifiers, decisions made for the user, and any unresolved blocker.
+For Scoped operation mode, report the requested observation or intervention
+and the Mission's actual state. See the operation reference for persistence,
+question handling, recovery, and the completion gate.
 
 Consult [references/sources.md](references/sources.md) only when reviewing or
 updating this skill's product assumptions.

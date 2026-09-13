@@ -2,8 +2,8 @@
 
 [![Validate](https://github.com/danieleceschi/factory-mission-skill/actions/workflows/validate.yml/badge.svg)](https://github.com/danieleceschi/factory-mission-skill/actions/workflows/validate.yml)
 
-**Turn an ambitious software goal into a plan that AI coding agents can
-execute, verify, and recover—without giving up control.**
+**Plan a Factory Mission, then have your agent carry it through verified
+completion and resolve Factory questions along the way.**
 
 A focused coding task can fit in one agent session. Building an application,
 modernizing a codebase, or coordinating a multi-part migration usually cannot.
@@ -13,8 +13,9 @@ and a safe way to intervene when execution drifts.
 Factory provides that orchestration through **Missions**. This open-source
 Agent Skill makes Missions easier to plan and operate from Factory Droid,
 Codex, or Claude Code. It helps you decide whether a Mission is appropriate,
-turn a goal into a validation-first brief, audit the plan, and—only when you
-explicitly ask—launch and steer the work through the Droid CLI.
+turn a goal into a validation-first brief, audit the plan, and, when you ask to
+run it, supervise the work through the Droid CLI until the outcome is verified
+or a blocker requires your input.
 
 > This is an unofficial open-source project, not an official Factory package.
 
@@ -53,7 +54,7 @@ plan. This skill addresses those problems before execution begins.
 - Make “done” observable with traceable acceptance assertions.
 - Break broad outcomes into worker-sized features and meaningful milestones.
 - Plan validation early instead of treating testing as a final cleanup step.
-- Keep launches and operational actions behind explicit user approval.
+- Answer routine Factory questions and recover workers within your instructions.
 - Use the same Mission workflow from Factory Droid, Codex, or Claude Code.
 
 ## What it does
@@ -62,8 +63,8 @@ plan. This skill addresses those problems before execution begins.
   sequence of Missions.
 - Creates and audits validation-first Mission briefs with traceable assertions,
   worker-sized features, milestone exits, harness instructions, and stop rules.
-- Launches, monitors, resumes, and steers Missions through the installed Droid
-  CLI—but only after an explicit operational request.
+- Launches, monitors, answers Factory questions, resumes, and repairs authorized
+  Missions through the installed Droid CLI until acceptance evidence is verified.
 - Includes a standard-library structural linter and behavioral eval fixtures.
 
 Planning and auditing are non-operational: asking for a brief or review never
@@ -79,9 +80,17 @@ preserving behavior. You can ask:
 > we must preserve, split the work into milestones, and specify how every
 > milestone will be validated.
 
-The skill can produce or audit that brief without launching anything. When the
-plan is ready, a separate explicit request such as “Launch this approved
-Mission” authorizes the operational workflow.
+The skill can produce or audit that brief without launching anything. To hand
+over execution, ask:
+
+> Run this Mission to completion in the target repository. Resolve Factory's
+> questions using the brief and repository conventions, unblock workers, and
+> verify the final result.
+
+You can also ask for planning and execution together. That request authorizes
+routine planning decisions and continued supervision without another approval
+round. The agent still brings you decisions that require new authority or
+material product choices it cannot infer.
 
 ## Before you install
 
@@ -129,8 +138,28 @@ skill invocation:
 
 - “Turn these five actions into a Factory Mission brief.”
 - “Audit this Mission plan for weak validation.”
-- “Launch this approved Factory Mission in `C:\path\to\repo`.”
+- “Run this Factory Mission to completion in `C:\path\to\repo`.”
+- “Take over this existing Mission and resolve its pending questions.”
 - “Monitor the Factory Mission you started and intervene if it blocks.”
+
+## What completion mode does
+
+1. Confirms the target, existing session, constraints, models, and validation.
+2. Follows progress and answers routine questions using your instructions and
+   repository evidence. It accepts compatible plans and repairs local blockers.
+3. Continues the same session after handoffs or recoverable failures, retaining
+   a checkpoint so context recovery does not duplicate work.
+4. Checks the delivered artifacts and acceptance evidence before declaring done.
+   A successful CLI exit or Factory's completion message alone is insufficient.
+
+“Monitor and tell me when input is needed” remains read-only. “Launch only” or
+“answer this one question” stays limited to that action. Asking for a prompt
+that runs to completion still produces a prompt without launching it.
+
+The skill runs inside your agent host; it does not install a standalone daemon.
+It stays engaged during the task and uses a supported host continuation mechanism
+when authorized and needed. If the host cannot continue unattended, it reports
+that limit, the actual Factory state, and how to resume from the checkpoint.
 
 ## Validate a brief
 

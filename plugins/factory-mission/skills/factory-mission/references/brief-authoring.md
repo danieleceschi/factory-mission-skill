@@ -127,6 +127,16 @@ State how to:
 Never invent a plausible command. If a missing command makes validation
 impossible, surface it as a blocker or create a feature to build the harness.
 
+### Execution handoff
+
+In Capabilities and execution, state how the orchestrator should resolve routine
+questions, continue after worker handoffs, repair failed validation, and prove
+completion. Use existing instructions and reversible choices; reserve user gates
+for material unknowns or authority the user has not granted. Carry budgets,
+non-goals, and external-action limits into the brief itself because headless
+Mission proposals may be auto-approved. This describes behavior after an
+explicit launch request; writing the brief does not authorize its execution.
+
 ## 7. Validate before returning
 
 Run the standard-library validator when Python is available:

@@ -1,6 +1,6 @@
 interface:
   display_name: "Factory Mission"
-  short_description: "Plan and operate Factory Missions safely"
-  default_prompt: "Use $factory-mission to prepare or operate a Factory Mission."
+  short_description: "Plan Missions and supervise them through completion"
+  default_prompt: "Use $factory-mission to run this Mission to completion, resolve Factory questions, and verify the result."
 policy:
   allow_implicit_invocation: true
