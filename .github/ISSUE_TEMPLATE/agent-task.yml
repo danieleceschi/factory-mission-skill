@@ -1,0 +1,72 @@
+name: Agent Task
+description: Issue form for a bounded agent task. Repository-specific AGENTS.md requirements still apply.
+title: "[Agent Task] "
+labels: []
+assignees: []
+body:
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance criteria
+      description: >
+        Define the concrete, testable outcomes that must be true for this task to be considered complete.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: commercial-status
+    attributes:
+      label: Commercial status
+      description: >
+        Record the intended commercial use of this task's output. Use "uncertain" when the
+        commercial status is not yet determined.
+      options:
+        - non-commercial
+        - commercial
+        - uncertain
+    validations:
+      required: true
+
+  - type: dropdown
+    id: data-classes
+    attributes:
+      label: Data classes
+      description: >
+        Select the highest applicable data class for data touched by this task. For example, if a
+        task processes both synthetic data and personal data, choose "personal".
+      options:
+        - none
+        - synthetic
+        - personal
+        - credentials-or-payment
+    validations:
+      required: true
+
+  - type: textarea
+    id: explicit-non-goals
+    attributes:
+      label: Explicit non-goals
+      description: >
+        List what this task explicitly does NOT aim to accomplish, to prevent scope creep.
+    validations:
+      required: true
+
+  - type: textarea
+    id: files-and-paths-in-scope
+    attributes:
+      label: Files and paths in scope
+      description: >
+        List the specific files and directories this task may read or modify. The agent must not
+        touch files outside this list.
+    validations:
+      required: true
+
+  - type: input
+    id: verification-command
+    attributes:
+      label: Verification command
+      description: >
+        A single shell command that can be run to verify the task was completed successfully
+        (e.g. "npm test" or "cargo clippy -- -D warnings").
+    validations:
+      required: true
