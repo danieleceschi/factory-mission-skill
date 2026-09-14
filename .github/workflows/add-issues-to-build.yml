@@ -1,0 +1,21 @@
+name: Add issues to Build project
+
+on:
+  issues:
+    types:
+      - opened
+
+permissions:
+  contents: read
+
+jobs:
+  add-to-project:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add issue and initialize status
+        env:
+          GH_TOKEN: ${{ secrets.PROJECTS_TOKEN }}
+          ISSUE_URL: ${{ github.event.issue.html_url }}
+        run: |
+          gh project item-add 1 --owner danieleceschi --url "$ISSUE_URL"
+          gh project item-edit 1 --owner danieleceschi --url "$ISSUE_URL" --field Status --value Backlog
