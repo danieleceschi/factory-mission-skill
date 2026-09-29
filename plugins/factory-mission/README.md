@@ -7,7 +7,9 @@ checking outcomes through the installed Droid CLI.
 
 The shared skill body is under `skills/factory-mission/`. Mission operations
 use the installed Droid CLI and follow the user's existing Factory
-authentication and model configuration.
+authentication and model configuration. The bundled supervisor helper provides
+durable checkpoints, question deduplication, bounded recovery, and a
+revision-bound completion evidence gate.
 
 See the repository [README](https://github.com/danieleceschi/factory-mission-skill)
 for installation, usage, validation, and safety guidance.

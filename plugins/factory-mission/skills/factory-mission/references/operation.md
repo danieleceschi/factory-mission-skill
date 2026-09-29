@@ -4,6 +4,11 @@ Read for execution, takeover, resumption, monitoring, or a scoped intervention.
 The host agent supervises Factory; it does not stop merely after sending a
 prompt or starting a process.
 
+For long-running Completion mode work, read
+[supervisor-tooling.md](supervisor-tooling.md) and use the bundled helper when
+Python is available. It enforces checkpoint, lease, replay, and evidence
+invariants while this reference governs the decisions.
+
 ## Authority and operating mode
 
 | User request | Responsibility |
@@ -182,8 +187,10 @@ force progress.
 
 ## Checkpoint and continuity
 
-Keep a small durable, redacted supervisor checkpoint in a host task artifact
-or untracked local location outside worker-owned files. Retain:
+Keep a small durable, redacted supervisor checkpoint in a private host-owned
+location outside the repository and worker-owned files. Prefer the bundled
+supervisor helper, which writes atomically, leases one controller, remembers
+delivered request IDs, and reconciles event replays. Retain:
 
 - objective, acceptance criteria, non-goals, and granted authority;
 - exact repository/worktree, branch, session/Mission IDs, process/log handles;
@@ -212,6 +219,9 @@ Inspect final artifacts and repository/worktree changes against scope; verify
 the evidence belongs to the final revision. Run focused checks when evidence
 is missing or stale. Do not repeat all tests when current evidence suffices.
 If Factory says done but evidence fails, send it back for repair and continue.
+Prefer the bundled evidence manifest. It binds each assertion and validator to
+its command result, artifacts, final commit, and staged/unstaged/untracked
+fingerprint; any later repository or artifact change invalidates stale proof.
 
 Use **running**, **blocked**, or **stopped** when that is the actual state.
 Stop dependent work and report when authority, essential access, an unavailable

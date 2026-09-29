@@ -23,7 +23,7 @@ class MetadataTests(unittest.TestCase):
         ]
         self.assertEqual({item["name"] for item in manifests}, {"factory-mission"})
         versions = {item["version"] for item in manifests}
-        self.assertEqual(versions, {"1.1.0"})
+        self.assertEqual(versions, {"1.2.0"})
         skill = PLUGIN / "skills" / "factory-mission"
         metadata = (skill / "SKILL.md").read_text(encoding="utf-8").split("---", 2)[1]
         skill_version = re.search(r"^  version: (.+)$", metadata, re.MULTILINE)

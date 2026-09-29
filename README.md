@@ -161,6 +161,23 @@ It stays engaged during the task and uses a supported host continuation mechanis
 when authorized and needed. If the host cannot continue unattended, it reports
 that limit, the actual Factory state, and how to resume from the checkpoint.
 
+## Supervision helper
+
+Completion mode includes a standard-library Python helper that makes the
+workflow durable and testable. It atomically records one-controller leases,
+Factory sessions and questions, bounded recovery attempts, and resumable state.
+Its evidence manifest binds every acceptance assertion and required validator
+to the final Git commit, dirty worktree fingerprint, command exit, and hashed
+output artifact. The checkpoint reaches `complete` only while that evidence is
+fresh.
+
+See
+[`references/supervisor-tooling.md`](plugins/factory-mission/skills/factory-mission/references/supervisor-tooling.md)
+for the command workflow. Maintainers of a private user-level variant can keep
+it aligned through an external overlay using
+[`references/private-sync.md`](plugins/factory-mission/skills/factory-mission/references/private-sync.md).
+Private values stay outside this repository.
+
 ## Validate a brief
 
 Python is optional for skill use and required only for deterministic linting:
@@ -177,6 +194,9 @@ Run the package tests with:
 ```text
 python -m unittest discover -s tests -v
 ```
+
+The suite also replays every published behavioral scenario through the
+supervisor state machine and checks evidence and private-sync invariants.
 
 ## Safety boundary
 

@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.2.0 - 2026-09-30
+
+- Add a crash-safe Mission supervisor with controller leases, session-aware
+  Droid execution, question deduplication, bounded recovery, and resumable
+  checkpoints.
+- Bind completion to an executable evidence manifest covering every acceptance
+  assertion, required validator, final commit, dirty diff, and output artifact.
+- Convert all 23 behavioral scenarios into deterministic controller replays.
+- Add drift-safe public-to-private synchronization with external overlays,
+  atomic replacement, dry runs, backups, and first-sync adoption controls.
+
 ## 1.1.0 - 2026-09-13
 
 - Add completion mode for run, launch, resume, and takeover requests, including

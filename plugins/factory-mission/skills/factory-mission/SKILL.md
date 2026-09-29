@@ -9,7 +9,7 @@ description: >-
 license: MIT
 metadata:
   author: danieleceschi
-  version: 1.1.0
+  version: 1.2.0
   source-reviewed: 2026-09-13
 ---
 
@@ -85,6 +85,10 @@ session identifiers, decisions made for the user, and any unresolved blocker.
 For Scoped operation mode, report the requested observation or intervention
 and the Mission's actual state. See the operation reference for persistence,
 question handling, recovery, and the completion gate.
+
+When Python is available, use the bundled supervisor and evidence helper for
+long-running Completion mode work. The operation reference routes to its
+instructions. Written guidance remains the fallback when the helper cannot run.
 
 Consult [references/sources.md](references/sources.md) only when reviewing or
 updating this skill's product assumptions.
