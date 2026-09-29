@@ -1,0 +1,190 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {
+      "id": "explicit-brief",
+      "events": [{"type": "scope_selected", "id": "scope", "mode": "brief"}],
+      "expected_status": "ready",
+      "expected_actions": ["draft_brief"]
+    },
+    {
+      "id": "semantic-brief",
+      "events": [{"type": "scope_selected", "id": "scope", "mode": "brief"}],
+      "expected_status": "ready",
+      "expected_actions": ["draft_brief"]
+    },
+    {
+      "id": "audit",
+      "events": [{"type": "scope_selected", "id": "scope", "mode": "audit"}],
+      "expected_status": "ready",
+      "expected_actions": ["audit_brief"]
+    },
+    {
+      "id": "tiny-task",
+      "events": [{"type": "scope_selected", "id": "scope", "mode": "direct_session"}],
+      "expected_status": "ready",
+      "expected_actions": ["recommend_direct_session"]
+    },
+    {
+      "id": "portfolio",
+      "events": [{"type": "scope_selected", "id": "scope", "mode": "portfolio"}],
+      "expected_status": "ready",
+      "expected_actions": ["draft_bounded_portfolio"]
+    },
+    {
+      "id": "research",
+      "events": [
+        {"type": "scope_selected", "id": "scope", "mode": "brief"},
+        {"type": "validation", "id": "scrutiny", "assertion_id": "scrutiny", "passed": true}
+      ],
+      "expected_status": "ready",
+      "expected_actions": ["draft_brief", "observe"]
+    },
+    {
+      "id": "explanation-only",
+      "events": [{"type": "scope_selected", "id": "scope", "mode": "explain"}],
+      "expected_status": "ready",
+      "expected_actions": ["explain_only"]
+    },
+    {
+      "id": "launch-approved",
+      "events": [
+        {"type": "scope_selected", "id": "scope", "mode": "launch"},
+        {"type": "worker_started", "id": "start", "worker_id": "w1"},
+        {"type": "heartbeat", "id": "heartbeat"},
+        {"type": "mission_reported_complete", "id": "reported-complete"}
+      ],
+      "expected_status": "verifying",
+      "expected_actions": ["launch_and_supervise", "observe", "observe", "verify_evidence"]
+    },
+    {
+      "id": "monitor",
+      "events": [
+        {"type": "scope_selected", "id": "scope", "mode": "monitor"},
+        {"type": "worker_started", "id": "start", "worker_id": "w1"},
+        {"type": "heartbeat", "id": "heartbeat"}
+      ],
+      "expected_status": "running",
+      "expected_actions": ["observe", "observe", "observe"]
+    },
+    {
+      "id": "unsafe-launch",
+      "events": [{"type": "scope_selected", "id": "scope", "mode": "safety_gated_brief"}],
+      "expected_status": "ready",
+      "expected_actions": ["draft_safety_gated_brief"]
+    },
+    {
+      "id": "plan-and-run",
+      "events": [
+        {"type": "scope_selected", "id": "scope", "mode": "completion"},
+        {"type": "worker_started", "id": "start", "worker_id": "w1"},
+        {"type": "worker_completed", "id": "worker-complete", "worker_id": "w1"},
+        {"type": "mission_reported_complete", "id": "reported-complete"}
+      ],
+      "expected_status": "verifying",
+      "expected_actions": ["prepare_and_supervise", "observe", "inspect_outcome", "verify_evidence"]
+    },
+    {
+      "id": "prompt-about-completion",
+      "events": [{"type": "scope_selected", "id": "scope", "mode": "brief"}],
+      "expected_status": "ready",
+      "expected_actions": ["draft_brief"]
+    },
+    {
+      "id": "launch-only",
+      "events": [
+        {"type": "scope_selected", "id": "scope", "mode": "launch_only"},
+        {"type": "worker_started", "id": "start", "worker_id": "w1"}
+      ],
+      "expected_status": "running",
+      "expected_actions": ["launch_and_return", "observe"]
+    },
+    {
+      "id": "routine-question",
+      "events": [
+        {"type": "scope_selected", "id": "scope", "mode": "completion"},
+        {"type": "worker_started", "id": "start", "worker_id": "w1"},
+        {"type": "question", "id": "question", "request_id": "q1", "text": "Which test runner?"}
+      ],
+      "expected_status": "awaiting_answer",
+      "expected_actions": ["prepare_and_supervise", "observe", "resolve_question"]
+    },
+    {
+      "id": "false-completion",
+      "events": [
+        {"type": "mission_reported_complete", "id": "reported-complete"},
+        {"type": "validation", "id": "failed-check", "assertion_id": "VAL-1", "passed": false}
+      ],
+      "expected_status": "recovering",
+      "expected_actions": ["verify_evidence", "repair_and_revalidate"]
+    },
+    {
+      "id": "recoverable-setup",
+      "events": [{"type": "failure", "id": "setup-failure", "cause": "service-not-running"}],
+      "expected_status": "recovering",
+      "expected_actions": ["diagnose_and_repair"]
+    },
+    {
+      "id": "new-authority",
+      "events": [
+        {"type": "scope_selected", "id": "scope", "mode": "completion"},
+        {"type": "permission_request", "id": "permission", "request_id": "p1", "text": "Deploy?"}
+      ],
+      "expected_status": "awaiting_authority",
+      "expected_actions": ["prepare_and_supervise", "review_authority"]
+    },
+    {
+      "id": "checkpoint-resume",
+      "events": [
+        {"type": "scope_selected", "id": "scope", "mode": "monitor"},
+        {"type": "worker_started", "id": "existing-worker", "worker_id": "w1"},
+        {"type": "heartbeat", "id": "refreshed-state"}
+      ],
+      "expected_status": "running",
+      "expected_actions": ["observe", "observe", "observe"]
+    },
+    {
+      "id": "rpc-question",
+      "events": [{"type": "question", "id": "rpc:42", "request_id": "42", "text": "Use pnpm test?"}],
+      "expected_status": "awaiting_answer",
+      "expected_actions": ["resolve_question"]
+    },
+    {
+      "id": "repeated-failure",
+      "events": [
+        {"type": "failure", "id": "f1", "cause": "service-down"},
+        {"type": "failure", "id": "f2", "cause": "service-down"},
+        {"type": "failure", "id": "f3", "cause": "service-down"}
+      ],
+      "expected_status": "blocked",
+      "expected_actions": ["diagnose_and_repair", "diagnose_and_repair", "report_repeated_blocker"]
+    },
+    {
+      "id": "stop-running",
+      "events": [
+        {"type": "worker_started", "id": "start", "worker_id": "w1"},
+        {"type": "stopped", "id": "stop"}
+      ],
+      "expected_status": "stopped",
+      "expected_actions": ["observe", "stop"]
+    },
+    {
+      "id": "no-durable-host",
+      "events": [
+        {"type": "scope_selected", "id": "scope", "mode": "completion"},
+        {"type": "host_continuity_unavailable", "id": "host-end"}
+      ],
+      "expected_status": "stopped",
+      "expected_actions": ["prepare_and_supervise", "report_resume_context"]
+    },
+    {
+      "id": "unavailable-model",
+      "events": [
+        {"type": "scope_selected", "id": "scope", "mode": "completion"},
+        {"type": "failure", "id": "model", "cause": "configured-model-unavailable", "recoverable": false}
+      ],
+      "expected_status": "blocked",
+      "expected_actions": ["prepare_and_supervise", "report_blocker"]
+    }
+  ]
+}

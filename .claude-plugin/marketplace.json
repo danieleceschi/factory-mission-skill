@@ -8,7 +8,7 @@
     {
       "name": "factory-mission",
       "description": "Plan Factory Missions and supervise authorized runs through verified completion.",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "author": {
         "name": "Daniele Ceschi"
       },

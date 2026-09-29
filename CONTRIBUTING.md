@@ -41,19 +41,22 @@ Before submitting a change:
 3. Keep the Factory, Codex, and Claude Code manifests aligned.
 4. Preserve the explicit authorization boundary for operational actions.
 5. Update the README or changelog when users need to know about the change.
+6. Keep private values in an external overlay and use `sync_private.py`; never
+   add them to public fixtures or manifests.
 
 ## Behavioral evaluation
 
-The package tests validate metadata and brief structure. They do not execute
-Mission supervision. Scenarios in
-`plugins/factory-mission/skills/factory-mission/evals/evals.json` separately
-exercise routing, question handling, recovery, and completion decisions.
+The package tests validate metadata, brief structure, supervisor state,
+evidence freshness, and private synchronization. Every scenario in
+`plugins/factory-mission/skills/factory-mission/evals/evals.json` has a matching
+deterministic event replay in `evals/replay/cases.json`.
 
 For workflow changes, give a fresh evaluator the skill plus each selected
 scenario's `prompt` and `context` before showing its `expectations`. Simulate
 session output offline unless a live run is explicitly authorized. Check the
 actual decisions and report which cases ran; do not call all fixtures passed
-merely because the JSON parsed or unit tests passed.
+merely because the JSON parsed. Deterministic replays complement this semantic
+evaluation; they do not replace it.
 
 ## Pull requests
 
